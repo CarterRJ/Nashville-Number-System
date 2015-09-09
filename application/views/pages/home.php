@@ -13,25 +13,6 @@
 		</div>
 	</div>
 
-	<!-- <script>
-$(document).ready(function(){
-    $( "#btn-new_table" ).click(function(){
-		tbl_name = "new table";
-		var columns = {};
-    	columns.audio = "varchar()";
-    	columns.video = 'mate';
-    	columns.happy= 'hello';
-        $.ajax({type: "POST", data: {tbl_name:tbl_name, columns:columns}, url: "<?php echo base_url(); ?>index.php/pages/tbl_columns/", success: function(result){
-			console.log("Working");
-            $("#div1").html(result);
-            $( "#btn-new_table").prop('disabled', true);
-        }});
-
-    });
-});
-</script> -->
-
-
 <!-- Typography
       ================================================== -->
 <div class="bs-docs-section">
@@ -124,7 +105,4 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
-</div>
-</div>
-
 </div>
