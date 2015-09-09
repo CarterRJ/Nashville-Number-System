@@ -5,7 +5,12 @@ echo "hello";
 
 <script type="text/javascript">
 <!--
-document.addEventListener("click", function(){ console.log("Get me happy"); });
+$(document).ready(function() {
+$('#div_answerBox').click(function(e) {
+    var txt = $(e.target).text();
+    console.log(txt);
+  });
+});
 //-->
 </script>
 <div class="progress progress-striped active">
@@ -13,19 +18,14 @@ document.addEventListener("click", function(){ console.log("Get me happy"); });
 		role="progressbar" aria-valuenow="15" aria-valuemin="0"
 		aria-valuemax="101" style="width: 5%"></div>
 </div>
-<a class="btn btn-primary">A</a>
-<a class="btn btn-primary">A#/Bb</a>
-<a class="btn btn-primary">B</a>
-<a class="btn btn-primary">C</a>
-<a class="btn btn-primary">C#/Db</a>
-<a class="btn btn-primary">D</a>
-<a class="btn btn-primary">D#/Eb</a>
-<a class="btn btn-primary">E</a>
-<a class="btn btn-primary">F</a>
-<a class="btn btn-primary">F#/Gb</a>
-<a class="btn btn-primary">G</a>
-<a class="btn btn-primary">G#/Ab</a>
-
+<div id=div_answerBox>
+	<a class="btn btn-primary">A</a> <a class="btn btn-primary">A#/Bb</a> <a
+		class="btn btn-primary">B</a> <a class="btn btn-primary">C</a> <a
+		class="btn btn-primary">C#/Db</a> <a class="btn btn-primary">D</a> <a
+		class="btn btn-primary">D#/Eb</a> <a class="btn btn-primary">E</a> <a
+		class="btn btn-primary">F</a> <a class="btn btn-primary">F#/Gb</a> <a
+		class="btn btn-primary">G</a> <a class="btn btn-primary">G#/Ab</a>
+</div>
 
 <!-- Buttons
       ================================================== -->
