@@ -1,54 +1,30 @@
 <?php
-
 echo "hello";
 
 ?>
 
-<style>
-#feedback {
-	font-size: 1.4em;
-}
-
-#selectable .ui-selecting {
-	background: #FECA40;
-}
-
-#selectable .ui-selected {
-	background: #F39814;
-	color: white;
-}
-
-#selectable {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	width: 450px;
-}
-
-#selectable li {
-	margin: auto;
-	padding: 1px;
-	float: left;
-	width: 40%;
-	font-size: 2em;
-	text-align: center;
-	clear: both;
-}
-</style>
-
-
-			<a class="btn btn-primary">A</a>
-			<a class="btn btn-primary">A#/Bb</a>
-			<a class="btn btn-primary">B</a>
-			<a class="btn btn-primary">C</a>
-			<a class="btn btn-primary">C#/Db</a>
-			<a class="btn btn-primary">D</a>
-			<a class="btn btn-primary">D#/Eb</a>
-			<a class="btn btn-primary">E</a>
-			<a class="btn btn-primary">F</a>
-			<a class="btn btn-primary">F#/Gb</a>
-			<a class="btn btn-primary">G</a>
-			<a class="btn btn-primary">G#/Ab</a>
+<script type="text/javascript">
+<!--
+document.addEventListener("click", function(){ console.log("Get me happy"); });
+//-->
+</script>
+<div class="progress progress-striped active">
+	<div id="progress-bar" class="progress-bar progress-bar-success"
+		role="progressbar" aria-valuenow="15" aria-valuemin="0"
+		aria-valuemax="101" style="width: 5%"></div>
+</div>
+<a class="btn btn-primary">A</a>
+<a class="btn btn-primary">A#/Bb</a>
+<a class="btn btn-primary">B</a>
+<a class="btn btn-primary">C</a>
+<a class="btn btn-primary">C#/Db</a>
+<a class="btn btn-primary">D</a>
+<a class="btn btn-primary">D#/Eb</a>
+<a class="btn btn-primary">E</a>
+<a class="btn btn-primary">F</a>
+<a class="btn btn-primary">F#/Gb</a>
+<a class="btn btn-primary">G</a>
+<a class="btn btn-primary">G#/Ab</a>
 
 
 <!-- Buttons
