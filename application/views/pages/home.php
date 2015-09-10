@@ -18,60 +18,78 @@ var Gb = ["null", "F#/Gb", "G#/Ab", "A#/Bb", "B", "C#/Db", "D#/Eb", "F", "F#/Gb"
 var B = ["null", "B", "C#/Db", "D#/Eb", "E", "F#/Gb", "G#/Ab", "A#/Bb", "B" ];
 var E = ["null", "E", "F#/Gb", "G#/Ab", "A", "B", "C#/Db", "D#/Eb", "E" ];
 
-var All  = {A: A, D: D, G: G, C: C, F: F, Bb: Bb, Eb: Eb, Ab: Ab, Db: Db, Gb: Gb, B: B, E: E};
-$(document).ready(function() {
-	var score = 0;
-	var numQues = 10;
-	var numAnswered = 0;
-	var incFactor = 100/numQues;
-	console.log("document READY");
-	$("#p_question").text(1 + Math.floor(Math.random() * 8));
-	/*for(i = 0; i < All.length; i++){
-		console.log(i + "------------" + All[i][1]);
-		for(k = 0; k < All[i].length; k++){
-			console.log(k + ": " + All[i][k]);
-		}
-	}*/
+var allKeys  = {A: A, D: D, G: G, C: C, F: F, Bb: Bb, Eb: Eb, Ab: Ab, Db: Db, Gb: Gb, B: B, E: E};
+var keys = Object.keys(allKeys);
 
+var score = 0;
+var numQues = 12;
+var numAnswered = 0;
+var incFactor = 100/numQues;
 
-    for(k = 0; k < All.A.length; k++){
-		console.log(k + ": " + All[$("#p_key").text()][k]);
-	}
-
-
-$('.answer').click(function(e) {
-	
-	if(numAnswered <= numQues){
-    var response = $(e.target).text();    
-    var question = All[$("#p_key").text()][$("#p_question").text()];
-    
-    if (question == response){
-		console.log("Correct");
-		score+=incFactor;
-		if (score>=100) score = 100;
-		$(".answer").prop('disabled', false);
-		$("#p_question").text(1 + Math.floor(Math.random() * 8));
-		
-    }else{
-		console.log("Incorrect");
-		$(e.target).prop('disabled', true);
-		score-=incFactor;
-		if (score<0) score = 0;
-    }
-
-    $("#progress-bar").width(score + "%");
-    numAnswered++;
-	}else{
-		console.log("Quiz done");
-	}
-  });
-
-$('#a_endQuiz').click(function() {
-	console.log("Quiz done");
+function reset(numQues){
 	$(".answer").prop('disabled', false);
+	score = 0;
+	this.numQues = numQues;
+	numAnswered = 0;
+	incFactor = 100/numQues;
+	console.log("RESET");
+}
+
+function randomStart(){
+	$("#p_question").text(1 + Math.floor(Math.random() * 8));
+	$("#p_key").text(keys[ 1 + Math.floor(Math.random() * keys.length)]);
+	$(".answer").prop('disabled', false);
+	console.log("RANDOM START");
+}
+
+$(document).ready(function() {
+	console.log("NumAnswered: "+ numAnswered);
 	
-});
-	
+	//Display first key/number 
+	randomStart();
+
+	//Handle button click 
+	$('.answer').click(function(e) {
+		
+		if(numAnswered <= numQues){
+	    var response = $(e.target).text();    
+	    var question = allKeys[$("#p_key").text()][$("#p_question").text()];
+
+	    //Correct
+	    if (question == response){
+			console.log("Correct");
+			score+=incFactor;
+			if (score>=100) score = 100;
+			$(".answer").prop('disabled', false);
+			$("#p_question").text(1 + Math.floor(Math.random() * 8));
+
+		//Incorrect	
+	    }else{
+			console.log("Incorrect");
+			$(e.target).prop('disabled', true);
+			score-=incFactor;
+			if (score<0) score = 0;
+	    }
+		//Update progress bar
+	    $("#progress-bar").width(score + "%");
+	    numAnswered++;
+		}else{
+			console.log("Quiz done");
+		}
+	  });
+	//End quiz button
+	$('#a_endQuiz').click(function() {
+		console.log("Quiz done");
+		reset(5);
+	});
+	//Reset button
+	$('#a_reset').click(function() {
+		console.log("random start");
+		randomStart();
+		reset(5);
+		
+	});
+		
 });
 //-->
 </script>
@@ -83,7 +101,6 @@ $('#a_endQuiz').click(function() {
 	</div>
 	<div id="div_question">
 		<p id="p_key" class="text-primary">C</p>
-
 		<p id="p_question" class="text-info">1</p>
 	</div>
 	<div id="div_answerBox">
@@ -105,79 +122,7 @@ $('#a_endQuiz').click(function() {
 		</div>
 	</div>
 	<div id="div_appFoot">
-		<a id="a_endQuiz" class="btn btn-default">End Quiz</a>
-	</div>
-</div>
-<!-- Typography
-      ================================================== -->
-<div class="bs-docs-section">
-	<!-- Blockquotes -->
-
-	<div class="row">
-		<div class="col-lg-12">
-			<h2 id="type-blockquotes">Blockquotes</h2>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-6">
-			<div class="bs-component">
-				<blockquote>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-						posuere erat a ante.</p>
-					<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-				</blockquote>
-			</div>
-		</div>
-		<div class="col-lg-6">
-			<div class="bs-component">
-				<blockquote class="pull-right">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-						posuere erat a ante.</p>
-					<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-				</blockquote>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Tables
-      ================================================== -->
-<div class="bs-docs-section">
-
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="page-header">
-				<h1 id="tables">Tables</h1>
-			</div>
-
-			<div class="bs-component">
-				<table class="table table-striped table-hover ">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Column heading</th>
-							<th>Column heading</th>
-							<th>Column heading</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Column content</td>
-							<td>Column content</td>
-							<td>Column content</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Column content</td>
-							<td>Column content</td>
-							<td>Column content</td>
-						</tr>
-
-					</tbody>
-				</table>
-			</div>
-			<!-- /example -->
-		</div>
+		<a id="a_endQuiz" class="btn btn-default">End Quiz</a> <a id="a_reset"
+			class="btn btn-default">Reset</a>
 	</div>
 </div>
