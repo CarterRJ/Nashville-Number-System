@@ -5,7 +5,8 @@
 $siteroot = asset_url ();
 echo '<link rel="stylesheet" href="' . $siteroot . 'css/bootstrap.min.css" type="text/css" />
 <link rel="stylesheet" href="' . $siteroot . 'css/theme-bootstrap.min.css" type="text/css" />
-<link rel="stylesheet" href="' . $siteroot . 'css/jquery-ui.min.css" type="text/css" />';
+<link rel="stylesheet" href="' . $siteroot . 'css/jquery-ui.min.css" type="text/css" />
+<link rel="stylesheet" href="' . $siteroot . 'css/base.css" type="text/css" />';
 echo '<script src="' . $siteroot . 'js/jquery-2.1.3.min.js"></script>
 <script src="' . $siteroot . 'js/bootstrap.min.js"></script>
 <script src="' . $siteroot . 'js/jquery-ui.min.js"></script>';

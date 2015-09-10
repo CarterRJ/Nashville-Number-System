@@ -1,22 +1,23 @@
-progress bar
-css
-
 #div_answerBox {
 	text-align: center;
+}
+
+#div_answerBox>a {
+
 }
 
 #div_question {
 	margin-bottom: 20px;
 }
 
-#p_key " {
+#div_question>p {
 	text-align: center;
 	font-size: 4em;
 	margin: auto;
 }
 
-#p_question {
-	style ="text-align: center;
-	font-size: 4em;
+#div_appFoot{
+	text-align: center;
 	margin: auto;
+	margin-top: 15px
 }

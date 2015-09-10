@@ -22,9 +22,10 @@ var All  = {A: A, D: D, G: G, C: C, F: F, Bb: Bb, Eb: Eb, Ab: Ab, Db: Db, Gb: Gb
 $(document).ready(function() {
 	var score = 0;
 	var numQues = 10;
+	var numAnswered = 0;
 	var incFactor = 100/numQues;
-    $("#progress-bar").width(score + "%");
 	console.log("document READY");
+	$("#p_question").text(1 + Math.floor(Math.random() * 8));
 	/*for(i = 0; i < All.length; i++){
 		console.log(i + "------------" + All[i][1]);
 		for(k = 0; k < All[i].length; k++){
@@ -38,49 +39,75 @@ $(document).ready(function() {
 	}
 
 
-$('#div_answerBox').click(function(e) {
+$('.answer').click(function(e) {
+	
+	if(numAnswered <= numQues){
     var response = $(e.target).text();    
     var question = All[$("#p_key").text()][$("#p_question").text()];
     
     if (question == response){
 		console.log("Correct");
 		score+=incFactor;
+		if (score>=100) score = 100;
+		$(".answer").prop('disabled', false);
+		$("#p_question").text(1 + Math.floor(Math.random() * 8));
 		
     }else{
 		console.log("Incorrect");
-		
+		$(e.target).prop('disabled', true);
 		score-=incFactor;
 		if (score<0) score = 0;
     }
 
     $("#progress-bar").width(score + "%");
+    numAnswered++;
+	}else{
+		console.log("Quiz done");
+	}
   });
 
+$('#a_endQuiz').click(function() {
+	console.log("Quiz done");
+	$(".answer").prop('disabled', false);
+	
+});
 	
 });
 //-->
 </script>
-<div class="progress progress-striped active">
-	<div id="progress-bar" class="progress-bar progress-bar-success"
-		role="progressbar" aria-valuenow="15" aria-valuemin="0"
-		aria-valuemax="101" style="width: 0%"></div>
-</div>
-<div id="div_question">
-	<p id="p_key" class="text-primary">C</p>
+<div id="div_app" class="col-lg-12">
+	<div class="progress progress-striped active">
+		<div id="progress-bar" class="progress-bar progress-bar-success"
+			role="progressbar" aria-valuenow="15" aria-valuemin="0"
+			aria-valuemax="101" style="width: 1%"></div>
+	</div>
+	<div id="div_question">
+		<p id="p_key" class="text-primary">C</p>
 
-	<p id="p_question" class="text-info">1</p>
+		<p id="p_question" class="text-info">1</p>
+	</div>
+	<div id="div_answerBox">
+		<div id="div_blackKeys">
+			<button class="btn btn-primary answer">C#/Db</button>
+			<button class="btn btn-primary answer">D#/Eb</button>
+			<button class="btn btn-primary answer">F#/Gb</button>
+			<button class="btn btn-primary answer">G#/Ab</button>
+			<button class="btn btn-primary answer">A#/Bb</button>
+		</div>
+		<div id="div_whiteKeys">
+			<button class="btn btn-primary answer">C</button>
+			<button class="btn btn-primary answer">D</button>
+			<button class="btn btn-primary answer">E</button>
+			<button class="btn btn-primary answer">F</button>
+			<button class="btn btn-primary answer">G</button>
+			<button class="btn btn-primary answer">A</button>
+			<button class="btn btn-primary answer">B</button>
+		</div>
+	</div>
+	<div id="div_appFoot">
+		<a id="a_endQuiz" class="btn btn-default">End Quiz</a>
+	</div>
 </div>
-<div id="div_answerBox">
-	<a class="btn btn-primary">A</a> <a class="btn btn-primary">A#/Bb</a> <a
-		class="btn btn-primary">B</a> <a class="btn btn-primary">C</a> <a
-		class="btn btn-primary">C#/Db</a> <a class="btn btn-primary">D</a> <a
-		class="btn btn-primary">D#/Eb</a> <a class="btn btn-primary">E</a> <a
-		class="btn btn-primary">F</a> <a class="btn btn-primary">F#/Gb</a> <a
-		class="btn btn-primary">G</a> <a class="btn btn-primary">G#/Ab</a>
-</div>
-<a id="end-quiz" class="btn btn-default">End Quiz</a>
-
-
 <!-- Typography
       ================================================== -->
 <div class="bs-docs-section">
