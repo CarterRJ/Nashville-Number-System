@@ -48,15 +48,6 @@ $('#div_answerBox').click(function(e) {
 		class="btn btn-primary">G</a> <a class="btn btn-primary">G#/Ab</a>
 </div>
 
-<!-- Buttons
-      ================================================== -->
-<div class="bs-docs-section">
-	<div class="row">
-		<div class="col-lg-12">
-			<h1 id="buttons">Buttons</h1>
-
-		</div>
-	</div>
 
 	<!-- Typography
       ================================================== -->
@@ -128,24 +119,6 @@ $('#div_answerBox').click(function(e) {
 					</table>
 				</div>
 				<!-- /example -->
-			</div>
-		</div>
-	</div>
-
-	<!-- Forms
-      ================================================== -->
-	<div class="bs-docs-section">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="page-header">
-					<h1 id="forms">Forms</h1>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="bs-component"></div>
 			</div>
 		</div>
 	</div>
