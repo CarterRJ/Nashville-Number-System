@@ -20,6 +20,10 @@ var E = ["null", "E", "F#/Gb", "G#/Ab", "A", "B", "C#/Db", "D#/Eb", "E" ];
 
 var All  = {A: A, D: D, G: G, C: C, F: F, Bb: Bb, Eb: Eb, Ab: Ab, Db: Db, Gb: Gb, B: B, E: E};
 $(document).ready(function() {
+	var score = 0;
+	var numQues = 10;
+	var incFactor = 100/numQues;
+    $("#progress-bar").width(score + "%");
 	console.log("document READY");
 	/*for(i = 0; i < All.length; i++){
 		console.log(i + "------------" + All[i][1]);
@@ -40,27 +44,33 @@ $('#div_answerBox').click(function(e) {
     
     if (question == response){
 		console.log("Correct");
+		score+=incFactor;
+		
     }else{
 		console.log("Incorrect");
+		
+		score-=incFactor;
+		if (score<0) score = 0;
     }
+
+    $("#progress-bar").width(score + "%");
   });
+
+	
 });
 //-->
 </script>
 <div class="progress progress-striped active">
 	<div id="progress-bar" class="progress-bar progress-bar-success"
 		role="progressbar" aria-valuenow="15" aria-valuemin="0"
-		aria-valuemax="101" style="width: 5%"></div>
+		aria-valuemax="101" style="width: 0%"></div>
 </div>
-<div id="div_question" style="margin-bottom: 20px;">
-	<p id="p_key" style="text-align: center; font-size: 4em; margin: auto;"
-		class="text-primary">C</p>
+<div id="div_question">
+	<p id="p_key" class="text-primary">C</p>
 
-	<p id="p_question"
-		style="text-align: center; font-size: 4em; margin: auto;"
-		class="text-info">1</p>
+	<p id="p_question" class="text-info">1</p>
 </div>
-<div id="div_answerBox" style="text-align: center;">
+<div id="div_answerBox">
 	<a class="btn btn-primary">A</a> <a class="btn btn-primary">A#/Bb</a> <a
 		class="btn btn-primary">B</a> <a class="btn btn-primary">C</a> <a
 		class="btn btn-primary">C#/Db</a> <a class="btn btn-primary">D</a> <a
@@ -68,6 +78,7 @@ $('#div_answerBox').click(function(e) {
 		class="btn btn-primary">F</a> <a class="btn btn-primary">F#/Gb</a> <a
 		class="btn btn-primary">G</a> <a class="btn btn-primary">G#/Ab</a>
 </div>
+<a id="end-quiz" class="btn btn-default">End Quiz</a>
 
 
 <!-- Typography
