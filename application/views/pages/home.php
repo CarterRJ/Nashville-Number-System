@@ -18,18 +18,31 @@ var Gb = ["null", "F#/Gb", "G#/Ab", "A#/Bb", "B", "C#/Db", "D#/Eb", "F", "F#/Gb"
 var B = ["null", "B", "C#/Db", "D#/Eb", "E", "F#/Gb", "G#/Ab", "A#/Bb", "B" ];
 var E = ["null", "E", "F#/Gb", "G#/Ab", "A", "B", "C#/Db", "D#/Eb", "E" ];
 
-var All  = [A, D, G, C, F, Bb, Eb, Ab, Db, Gb, B, E];
+var All  = {A: A, D: D, G: G, C: C, F: F, Bb: Bb, Eb: Eb, Ab: Ab, Db: Db, Gb: Gb, B: B, E: E};
 $(document).ready(function() {
-	for(i = 0; i < All.length; i++){
+	console.log("document READY");
+	/*for(i = 0; i < All.length; i++){
 		console.log(i + "------------" + All[i][1]);
 		for(k = 0; k < All[i].length; k++){
 			console.log(k + ": " + All[i][k]);
 		}
+	}*/
+
+
+    for(k = 0; k < All.A.length; k++){
+		console.log(k + ": " + All[$("#p_key").text()][k]);
 	}
 
+
 $('#div_answerBox').click(function(e) {
-    var txt = $(e.target).text();
-    console.log(txt);
+    var response = $(e.target).text();    
+    var question = All[$("#p_key").text()][$("#p_question").text()];
+    
+    if (question == response){
+		console.log("Correct");
+    }else{
+		console.log("Incorrect");
+    }
   });
 });
 //-->
@@ -39,7 +52,15 @@ $('#div_answerBox').click(function(e) {
 		role="progressbar" aria-valuenow="15" aria-valuemin="0"
 		aria-valuemax="101" style="width: 5%"></div>
 </div>
-<div id=div_answerBox>
+<div id="div_question" style="margin-bottom: 20px;">
+	<p id="p_key" style="text-align: center; font-size: 4em; margin: auto;"
+		class="text-primary">C</p>
+
+	<p id="p_question"
+		style="text-align: center; font-size: 4em; margin: auto;"
+		class="text-info">1</p>
+</div>
+<div id="div_answerBox" style="text-align: center;">
 	<a class="btn btn-primary">A</a> <a class="btn btn-primary">A#/Bb</a> <a
 		class="btn btn-primary">B</a> <a class="btn btn-primary">C</a> <a
 		class="btn btn-primary">C#/Db</a> <a class="btn btn-primary">D</a> <a
@@ -49,76 +70,76 @@ $('#div_answerBox').click(function(e) {
 </div>
 
 
-	<!-- Typography
+<!-- Typography
       ================================================== -->
-	<div class="bs-docs-section">
-		<!-- Blockquotes -->
+<div class="bs-docs-section">
+	<!-- Blockquotes -->
 
-		<div class="row">
-			<div class="col-lg-12">
-				<h2 id="type-blockquotes">Blockquotes</h2>
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 id="type-blockquotes">Blockquotes</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="bs-component">
+				<blockquote>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+						posuere erat a ante.</p>
+					<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+				</blockquote>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="bs-component">
-					<blockquote>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Integer posuere erat a ante.</p>
-						<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-					</blockquote>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="bs-component">
-					<blockquote class="pull-right">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Integer posuere erat a ante.</p>
-						<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-					</blockquote>
-				</div>
+		<div class="col-lg-6">
+			<div class="bs-component">
+				<blockquote class="pull-right">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+						posuere erat a ante.</p>
+					<small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+				</blockquote>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<!-- Tables
+<!-- Tables
       ================================================== -->
-	<div class="bs-docs-section">
+<div class="bs-docs-section">
 
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="page-header">
-					<h1 id="tables">Tables</h1>
-				</div>
-
-				<div class="bs-component">
-					<table class="table table-striped table-hover ">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Column heading</th>
-								<th>Column heading</th>
-								<th>Column heading</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Column content</td>
-								<td>Column content</td>
-								<td>Column content</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Column content</td>
-								<td>Column content</td>
-								<td>Column content</td>
-							</tr>
-
-						</tbody>
-					</table>
-				</div>
-				<!-- /example -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="page-header">
+				<h1 id="tables">Tables</h1>
 			</div>
+
+			<div class="bs-component">
+				<table class="table table-striped table-hover ">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Column heading</th>
+							<th>Column heading</th>
+							<th>Column heading</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Column content</td>
+							<td>Column content</td>
+							<td>Column content</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Column content</td>
+							<td>Column content</td>
+							<td>Column content</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<!-- /example -->
 		</div>
 	</div>
+</div>
