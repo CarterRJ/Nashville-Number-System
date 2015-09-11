@@ -53,7 +53,7 @@ $(document).ready(function() {
 	$('.answer').click(function(e) {
 		
 		if(numAnswered <= numQues){
-	    var response = $(e.target).text();    
+	    var response = $(e.target).attr('id');    
 	    var question = allKeys[$("#p_key").text()][$("#p_question").text()];
 
 	    //Correct
