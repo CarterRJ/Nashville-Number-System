@@ -21,3 +21,9 @@
 	margin: auto;
 	margin-top: 15px
 }
+
+#img_spinner {        
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}

@@ -2,14 +2,29 @@
 <head>
 <title><?php echo $title; ?></title>
 <?php
-$siteroot = asset_url ();
-echo '<link rel="stylesheet" href="' . $siteroot . 'css/bootstrap.min.css" type="text/css" />
-<link rel="stylesheet" href="' . $siteroot . 'css/theme-bootstrap.min.css" type="text/css" />
-<link rel="stylesheet" href="' . $siteroot . 'css/jquery-ui.min.css" type="text/css" />
-<link rel="stylesheet" href="' . $siteroot . 'css/base.css" type="text/css" />';
-echo '<script src="' . $siteroot . 'js/jquery-2.1.3.min.js"></script>
-<script src="' . $siteroot . 'js/bootstrap.min.js"></script>
-<script src="' . $siteroot . 'js/jquery-ui.min.js"></script>';
+$asset_url = asset_url ();
+echo '<link rel="stylesheet" href="' . $asset_url . 'css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="' . $asset_url . 'css/theme-bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="' . $asset_url . 'css/jquery-ui.min.css" type="text/css" />
+<link rel="stylesheet" href="' . $asset_url . 'css/base.css" type="text/css" />';
+echo '<script src="' . $asset_url . 'js/jquery-2.1.3.min.js"></script>
+<script src="' . $asset_url . 'js/bootstrap.min.js"></script>
+<script src="' . $asset_url . 'js/jquery-ui.min.js"></script>';
+echo'<!-- polyfill -->
+	<script src="' . $asset_url . 'inc/shim/Base64.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'inc/shim/Base64binary.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'inc/shim/WebAudioAPI.js" type="text/javascript"></script>
+	<!-- midi.js package -->
+	<script src="' . $asset_url . 'js/midi/audioDetect.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'js/midi/gm.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'js/midi/loader.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'js/midi/plugin.audiotag.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'js/midi/plugin.webaudio.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'js/midi/plugin.webmidi.js" type="text/javascript"></script>
+	<!-- utils -->
+	<script src="' . $asset_url . 'js/util/dom_request_xhr.js" type="text/javascript"></script>
+	<script src="' . $asset_url . 'js/util/dom_request_script.js" type="text/javascript"></script>
+		'
 ?>
 </head>
 <body>
