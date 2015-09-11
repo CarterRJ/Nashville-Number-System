@@ -9,16 +9,10 @@ MIDI.loadPlugin({
         console.log(state, progress);
     },
     onsuccess: function() {
-
         $("#img_spinner").hide();
         $("#div_app").show();
-        var delay = 0; // play one note every quarter second
-        var note = 50; // the MIDI note
-        var velocity = 127; // how hard the note hits
-        // play the note
-        MIDI.setVolume(0, 127);
-        MIDI.noteOn(0, note, velocity, delay);
-        MIDI.noteOff(0, note, delay + 0.75);
+
+        playMidi();
     }
 });
 <!--
@@ -50,11 +44,11 @@ var allKeys = {
     E: E
 };
 var keys = Object.keys(allKeys);
-var major_scale = [0, 2, 4, 5, 7, 9, 11, 12];
+var major_scale = [null, 0, 2, 4, 5, 7, 9, 11, 12];
 
 var score = 0;
 var numCorrect = 0;
-var numQues = 30;
+var numQues = 10;
 var numAnswered = 0;
 var incFactor = 100 / numQues;
 
@@ -77,6 +71,14 @@ function randomStart() {
     console.log("RANDOM START");
 }
 
+function playMidi(){
+	midiNum = parseInt(allKeys[$("#p_key").text()][0]);
+    midiNum += major_scale[$("#p_question").text()];
+	console.log("Playing midi :" + midiNum);
+    MIDI.noteOn(0, midiNum, 127, 0);
+    MIDI.noteOff(0, midiNum, 4);
+}
+
 $(document).ready(function() {
 
     //Display first key/number 
@@ -84,18 +86,13 @@ $(document).ready(function() {
 
     //Handle button click 
     $('.answer').click(function(e) {
+    	MIDI.stopAllNotes();
         numAnswered++;
         if (numAnswered <= numQues) {
             var response = $(e.target).attr('id');
             var question = allKeys[$("#p_key").text()][$("#p_question").text()];
             var curr = $("#p_question").text();
-            note = parseInt(allKeys[$("#p_key").text()][0]);
-            note += major_scale[$("#p_question").text()];
-            console.log("note: " + note);
-            console.log("question: " + question);
 
-            MIDI.noteOn(0, note, 127, 0);
-            MIDI.noteOff(0, note, 0.75);
             //Correct
             if (question == response) {
                 console.log("Correct");
@@ -107,6 +104,7 @@ $(document).ready(function() {
                     curr = 1 + Math.floor(Math.random() * 8);
                 }
                 $("#p_question").text(curr);
+                playMidi();
 
                 //Incorrect	
             } else {
@@ -136,7 +134,7 @@ $(document).ready(function() {
     //Reset button
     $('#a_reset').click(function() {
         console.log("random start");
-        randomStart();
+        //randomStart();
         reset(5);
     });
 
