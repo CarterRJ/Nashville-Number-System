@@ -33,6 +33,7 @@ function reset(numQues){
 	numAnswered = 0;
 	incFactor = 100/numQues;
 	console.log("RESET");
+	$("#progress-bar").width("1%");
 }
 
 function randomStart(){
@@ -105,20 +106,20 @@ $(document).ready(function() {
 	</div>
 	<div id="div_answerBox">
 		<div id="div_blackKeys">
-			<button class="btn btn-primary answer">C#/Db</button>
-			<button class="btn btn-primary answer">D#/Eb</button>
-			<button class="btn btn-primary answer">F#/Gb</button>
-			<button class="btn btn-primary answer">G#/Ab</button>
-			<button class="btn btn-primary answer">A#/Bb</button>
+			<button id = "C#/Db" class="btn btn-primary answer">C#/Db</button>
+			<button id = "D#/Eb" class="btn btn-primary answer">D#/Eb</button>
+			<button id = "F#/Gb" class="btn btn-primary answer">F#/Gb</button>
+			<button id = "G#/Ab" class="btn btn-primary answer">G#/Ab</button>
+			<button id = "A#/Bb" class="btn btn-primary answer">A#/Bb</button>
 		</div>
 		<div id="div_whiteKeys">
-			<button class="btn btn-primary answer">C</button>
-			<button class="btn btn-primary answer">D</button>
-			<button class="btn btn-primary answer">E</button>
-			<button class="btn btn-primary answer">F</button>
-			<button class="btn btn-primary answer">G</button>
-			<button class="btn btn-primary answer">A</button>
-			<button class="btn btn-primary answer">B</button>
+			<button id = "C" class="btn btn-primary answer">&nbsp;&nbsp;C&nbsp;&nbsp;</button>
+			<button id = "D" class="btn btn-primary answer">&nbsp;&nbsp;D&nbsp;&nbsp;</button>
+			<button id = "E" class="btn btn-primary answer">&nbsp;&nbsp;E&nbsp;&nbsp;</button>
+			<button id = "F" class="btn btn-primary answer">&nbsp;&nbsp;F&nbsp;&nbsp;</button>
+			<button id = "G" class="btn btn-primary answer">&nbsp;&nbsp;G&nbsp;&nbsp;</button>
+			<button id = "A" class="btn btn-primary answer">&nbsp;&nbsp;A&nbsp;&nbsp;</button>
+			<button id = "B" class="btn btn-primary answer">&nbsp;&nbsp;B&nbsp;&nbsp;</button>
 		</div>
 	</div>
 	<div id="div_appFoot">
