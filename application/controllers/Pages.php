@@ -20,6 +20,8 @@ class Pages extends CI_Controller {
 		$data['title'] = "Nashville Number System";
 		$this->load->view('templates/header', $data);
 		$this->load->view("pages/$page", $data);
+		$this->load->view('templates/footer', $data);
+		
 	}
 	
 	

@@ -2,11 +2,11 @@
 	<div class="row">
 		<div class="col-md-6 col-md-offset-2">
 			<p>
-				These exercises are design to help you become fluent in the
+				These exercises are designed to help you become fluent in the
 				Nashville Number System which can make learning songs quicker and
-				playing songs easier in addition to improving your musical ear. <a
-					href="/ear-training/how-to-practice">For best results, practice a
-					little bit every day</a>:
+				playing songs easier.<br />
+				<a href="/ear-training/how-to-practice">
+				For	best results, practice a little bit every day</a>:
 			</p>
 			<ul>
 				<li><strong><a

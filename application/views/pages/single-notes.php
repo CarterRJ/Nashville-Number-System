@@ -114,7 +114,7 @@ $(document).ready(function() {
             }
 
             //Update progress bar
-            if (score >= 100) {
+            if (score > 100) {
                 score = 100;
             } else if (score < 0) {
                 score = 0;
@@ -128,19 +128,22 @@ $(document).ready(function() {
             console.log("score: " + score + "%");
             $("#span_numResponses").text(numAnswered);
         } else {
-        	$("#div_app").hide();
-            $("#div_results").show();
-            console.log("Quiz done");
+        	endQuiz();
         }
     });
+
+    function endQuiz(){
+    	 console.log("Quiz done");
+         $("#div_app").hide();
+         $("#div_results").show();
+         $("#span_numCorrect").text(numCorrect);
+         $("#span_numAnswered").text(numAnswered);
+         $("#span_score").text(score);
+    }
+    
     //End quiz button
     $('#a_endQuiz').click(function() {
-        console.log("Quiz done");
-        $("#div_app").hide();
-        $("#div_results").show();
-        $("#span_numCorrect").text(numCorrect);
-        $("#span_numAnswered").text(numAnswered);
-        $("#span_score").text(score);
+       endQuiz();
     });
     //Reset button
     $('#a_reset').click(function() {
