@@ -128,6 +128,7 @@ $(document).ready(function() {
     //End quiz button
     $('#a_endQuiz').click(function() {
         console.log("Quiz done");
+        $("#div_app").hide();
         $("#div_results").show();
         reset(5);
     });
@@ -135,7 +136,7 @@ $(document).ready(function() {
     $('#a_reset').click(function() {
         console.log("random start");
         //randomStart();
-        reset(5);
+        reset(50);
     });
 
 });
