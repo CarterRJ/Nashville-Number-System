@@ -88,6 +88,7 @@ $(document).ready(function() {
     $('.answer').click(function(e) {
     	MIDI.stopAllNotes();
         numAnswered++;
+        console.log("numAns: " + numAnswered);
         if (numAnswered <= numQues) {
             var response = $(e.target).attr('id');
             var question = allKeys[$("#p_key").text()][$("#p_question").text()];
@@ -111,6 +112,7 @@ $(document).ready(function() {
                 console.log("Incorrect");
                 $(e.target).prop('disabled', true);
             }
+
             //Update progress bar
             if (score >= 100) {
                 score = 100;
@@ -118,10 +120,16 @@ $(document).ready(function() {
                 score = 0;
             } else {
                 score = numCorrect / numAnswered * 100;
+                console.log("score: " + score + "%");
+                console.log("numCorrect: " + numCorrect);
+                console.log("numAns: " + numAnswered);
             }
             $("#progress-bar").width(score + "%");
+            console.log("score: " + score + "%");
             $("#span_numResponses").text(numAnswered);
         } else {
+        	$("#div_app").hide();
+            $("#div_results").show();
             console.log("Quiz done");
         }
     });
@@ -130,6 +138,9 @@ $(document).ready(function() {
         console.log("Quiz done");
         $("#div_app").hide();
         $("#div_results").show();
+        $("#span_numCorrect").text(numCorrect);
+        $("#span_numAnswered").text(numAnswered);
+        $("#span_score").text(score);
     });
     //Reset button
     $('#a_reset').click(function() {
@@ -187,6 +198,12 @@ $(document).ready(function() {
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="bs-component">
+			
+	      <h1>Finished!</h1>
+	      <p style="font-size:24px;" id="post-quiz-info">You identified <span id="span_numCorrect">3</span> of <span id="span_numAnswered">3</span> correctly, <span id="span_score">100.00</span>%</p>
+	      <p style="text-align:left;">If you want to improve, bookmark this exercise and practice a little bit every day. You can read more advice on how to practice ear training <a href="/ear-training/how-to-practice">here</a>.</p>
+	      <a class="btn btn-lg btn-primary" id="start-again">Start Again</a>
+	    </div>
 				<table class="table table-striped table-hover ">
 					<thead>
 						<tr>
