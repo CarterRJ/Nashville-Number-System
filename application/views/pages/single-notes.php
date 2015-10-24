@@ -130,8 +130,6 @@ $(document).ready(function() {
         console.log("Quiz done");
         $("#div_app").hide();
         $("#div_results").show();
-        console.log("div_results -> show");
-        reset(5);
     });
     //Reset button
     $('#a_reset').click(function() {
@@ -184,11 +182,10 @@ $(document).ready(function() {
 			class="btn btn-default">Reset</a>
 	</div>
 </div>
-<div id="div_results" class="bs-docs-section" style="display: none;">
+<div id="div_results" style="display: none;">
 
 	<div class="row">
 		<div class="col-lg-12">
-			
 			<div class="bs-component">
 				<table class="table table-striped table-hover ">
 					<thead>
@@ -233,7 +230,6 @@ $(document).ready(function() {
 					</tbody>
 				</table>
 			</div>
-			<!-- /example -->
 		</div>
 	</div>
 </div>
