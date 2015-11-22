@@ -55,8 +55,7 @@ echo'<!-- polyfill -->
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="http://usebootstrap.com/" target="_blank">Use
-							Bootstrap</a></li>
+					<li><a href="<?php echo site_url().'/help'?>">Help</a></li>
 					<li><a href="http://usebootstrap.com/" target="_blank">Bootstrap
 							Themes</a></li>
 				</ul>
