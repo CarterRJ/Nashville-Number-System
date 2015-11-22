@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h1>An easy way learn/practice the Nuber System</h1>
+			<h1>An Easy Way Learn The Number System</h1>
 			<ul>
 				<li><p>
 						<strong>All you need to know is the major triad</strong>. The
@@ -110,7 +110,7 @@
 						<li>The key of C is: C D E F G A B C</li>
 						<li>The key of G is: G A B C D E F# G</li> 
 					</ul>
-						<u>Notice anything??></u>
+						<u>Notice anything??</u>
 					<ul>
 						<li>The first half of the C major (CDEF) is the last half of the F
 							major scale.

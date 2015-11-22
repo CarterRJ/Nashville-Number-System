@@ -48,16 +48,12 @@ echo'<!-- polyfill -->
 							<li><a href="#">Example 1</a></li>
 							<li class="divider"></li>
 							<li><a href="#">Example 2</a></li>
-							<li><a href="#">Example 3</a></li>
-							<li><a href="#">Example 4</a></li>
 						</ul></li>
 					<li><a href="#">Themes</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?php echo site_url().'/help'?>">Help</a></li>
-					<li><a href="http://usebootstrap.com/" target="_blank">Bootstrap
-							Themes</a></li>
 				</ul>
 
 			</div>
